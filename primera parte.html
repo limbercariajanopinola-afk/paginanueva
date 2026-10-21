@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ecuaciones Diferenciales Interactivas</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ],
+                displayMath: [
+                    ['$$', '$$'],
+                    ['\\[', '\\]']
+                ]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+        async>
+    </script>
+
+    <!-- p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="main-header">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8">
+
+                    <span class="badge bg-warning text-dark mb-3">
+                        Matemática Intermedia
+                    </span>
+
+                    <h1>
+                        Ecuaciones Diferenciales
+                    </h1>
+
+                    <p class="lead">
+                        Comprende, resuelve y visualiza ecuaciones
+                        diferenciales mediante modelos matemáticos
+                        y gráficas interactivas.
+                    </p>
+
+                    <a href="#introduccion"
+                       class="btn btn-light btn-lg">
+                        Comenzar
+                    </a>
+
+                </div>
+
+                <div class="col-lg-4 text-center">
+
+                    <div class="header-formula">
+                        \[
+                        \frac{dy}{dx}=f(x,y)
+                        \]
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-graph-up-arrow"></i>
+                Ecuaciones Dif.
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuPrincipal">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div
+                class="collapse navbar-collapse"
+                id="menuPrincipal">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#introduccion">
+                            Introducción
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#conceptos">
+                            Conceptos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#metodo">
+                            Resolución
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ejemplo">
+                            Ejemplo
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#graficas">
+                            Gráficas
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================
+         CONTENIDO
+    ========================================== -->
+
+    <main>
+
+
+        <!-- INTRODUCCIÓN -->
+
+        <section id="introduccion"
+                 class="section-light">
+
+            <div class="container">
+
+                <div class="row align-items-center">
+
+                    <div class="col-lg-7">
+
+                        <span class="section-number">
+                            01
+                        </span>
+
+                        <h2>
+                            ¿Qué es una ecuación diferencial?
+                        </h2>
+
+                        <p>
+                            Una ecuación diferencial es una ecuación
+                            matemática que relaciona una función
+                            desconocida con una o más de sus derivadas.
+                        </p>
+
+                        <p>
+                            Estas ecuaciones aparecen cuando queremos
+                            describir cómo cambia una cantidad respecto
+                            de otra. Por ejemplo, pueden utilizarse para
+                            modelar poblaciones, movimiento, temperatura,
+                            circuitos eléctricos y muchos otros fenómenos.
+                        </p>
+
+                        <div class="formula-box">
+
+                            \[
+                            \frac{dy}{dx}=f(x,y)
+                            \]
+
+                        </div>
+
+                        <p>
+                            En esta expresión, $y$ es la función
+                            desconocida y $\frac{dy}{dx}$ representa
+                            su tasa de cambio respecto de $x$.
+                        </p>
+
+                    </div>
+
+
+                    <div class="col-lg-5">
+
+                        <img
+                            src="img/ecuacion-diferencial.svg"
+                            class="img-fluid educational-image"
+                            alt="Representación de una ecuación diferencial">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONCEPTOS -->
+
+        <section id="conceptos"
+                 class="section-dark">
+
+            <div class="container">
+
+                <div class="text-center section-title">
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <h2>
+                        Conceptos fundamentales
+                    </h2>
+
+                    <p>
+                        Antes de resolver una ecuación diferencial
+                        debemos identificar sus características.
+                    </p>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- CARD 1 -->
+
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="concept-card">
+
+                            <i class="bi bi-layers"></i>
+
+                            <h3>Orden</h3>
+
+                            <p>
+                                El orden corresponde a la derivada
+                                de mayor nivel presente en la ecuación.
+                            </p>
+
+                            <div class="mini-formula">
+
+                                \[
+                                y''+3y'=0
+                                \]
+
+                                <small>
+                                    Ecuación de segundo orden
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 2 -->
+
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="concept-card">
+
+                            <i class="bi bi-diagram-3"></i>
+
+                            <h3>Linealidad</h3>
+
+                            <p>
+                                Una ecuación es lineal si la función
+                                desconocida y sus derivadas aparecen
+                                con exponente uno.
+                            </p>
+
+                            <div class="mini-formula">
+
+                                \[
+                                y'+P(x)y=Q(x)
+                                \]
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 3 -->
+
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="concept-card">
+
+                            <i class="bi bi-arrow-left-right"></i>
+
+                            <h3>Solución</h3>
+
+                            <p>
+                                Una solución es una función que satisface
+                                la ecuación diferencial.
+                            </p>
+
+                            <div class="mini-formula">
+
+                                \[
+                                y=Ce^x
+                                \]
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 4 -->
+
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="concept-card">
+
+                            <i class="bi bi-bullseye"></i>
+
+                            <h3>Condición inicial</h3>
+
+                            <p>
+                                Permite determinar una solución particular
+                                a partir de un valor conocido.
+                            </p>
+
+                            <div class="mini-formula">
+
+                                \[
+                                y(0)=2
+                                \]
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MÉTODO -->
+
+        <section id="metodo"
+                 class="section-light">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <h2>
+                        ¿Cómo desarrollar una ecuación diferencial?
+                    </h2>
+
+                    <p>
+                        Veamos un procedimiento básico para resolver
+                        una ecuación diferencial de primer orden.
+                    </p>
+
+                </div>
+
+
+                <!-- PASO 1 -->
+
+                <div class="solution-step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Identificar la ecuación
+                        </h3>
+
+                        <p>
+                            Consideremos la ecuación:
+                        </p>
+
+                        <div class="formula-box">
+
+                            \[
+                            \frac{dy}{dx}=2xy
+                            \]
+
+                        </div>
+
+                        <p>
+                            Esta es una ecuación diferencial de primer
+                            orden y puede resolverse mediante
+                            separación de variables.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASO 2 -->
+
+                <div class="solution-step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Separar las variables
+                        </h3>
+
+                        <p>
+                            Colocamos los términos que contienen $y$
+                            de un lado y los que contienen $x$
+                            del otro:
+                        </p>
+
+                        <div class="formula-box">
+
+                            \[
+                            \frac{1}{y}dy=2x\,dx
+                            \]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASO 3 -->
+
+                <div class="solution-step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Integrar
+                        </h3>
+
+                        <p>
+                            Integramos ambos lados:
+                        </p>
+
+                        <div class="formula-box">
+
+                            \[
+                            \int\frac{1}{y}dy
+                            =
+                            \int2x\,dx
+                            \]
+
+                            \[
+                            \ln|y|=x^2+C
+                            \]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASO 4 -->
+
+                <div class="solution-step">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Despejar la función
+                        </h3>
+
+                        <p>
+                            Aplicamos la función exponencial:
+                        </p>
+
+                        <div class="formula-box">
+
+                            \[
+                            |y|=e^{x^2+C}
+                            \]
+
+                            \[
+                            y=Ce^{x^2}
+                            \]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASO 5 -->
+
+                <div class="solution-step">
+
+                    <div class="step-number">
+                        5
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Aplicar la condición inicial
+                        </h3>
+
+                        <p>
+                            Supongamos que tenemos:
+                        </p>
+
+                        <div class="formula-box">
+
+                            \[
+                            y(0)=2
+                            \]
+
+                        </div>
+
+                        <p>
+                            Entonces:
+                        </p>
+
+                        <div class="formula-box">
+
+                            \[
+                            2=Ce^0
+                            \]
+
+                            \[
+                            C=2
+                            \]
+
+                        </div>
+
+                        <div class="final-answer">
+
+                            <strong>Solución particular:</strong>
+
+                            \[
+                            \boxed{y=2e^{x^2}}
+                            \]
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EJEMPLO -->
+
+        <section id="ejemplo"
+                 class="section-example">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+
+                        <span class="section-number">
+                            04
+                        </span>
+
+                        <h2>
+                            Ejemplo: crecimiento exponencial
+                        </h2>
+
+                        <p>
+                            Uno de los modelos diferenciales más
+                            conocidos es:
+                        </p>
+
+                        <div class="formula-box white">
+
+                            \[
+                            \frac{dy}{dt}=ky
+                            \]
+
+                        </div>
+
+                        <p>
+                            donde $y(t)$ representa una cantidad
+                            que cambia proporcionalmente a su
+                            propio valor.
+                        </p>
+
+                        <p>
+                            Separando variables:
+                        </p>
+
+                        <div class="formula-box white">
+
+                            \[
+                            \frac{dy}{y}=k\,dt
+                            \]
+
+                        </div>
+
+                        <p>
+                            Integrando:
+                        </p>
+
+                        <div class="formula-box white">
+
+                            \[
+                            \ln|y|=kt+C
+                            \]
+
+                        </div>
+
+                        <p>
+                            Finalmente:
+                        </p>
+
+                        <div class="formula-box white">
+
+                            \[
+                            \boxed{y(t)=Ce^{kt}}
+                            \]
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-6">
+
+                        <div class="example-panel">
+
+                            <h3>
+                                Interpretación
+                            </h3>
+
+                            <p>
+                                El signo de $k$ determina el comportamiento
+                                del modelo:
+                            </p>
+
+                            <ul>
+
+                                <li>
+                                    $k>0$: crecimiento.
+                                </li>
+
+                                <li>
+                                    $k<0$: decrecimiento.
+                                </li>
+
+                                <li>
+                                    $k=0$: comportamiento constante.
+                                </li>
+
+                            </ul>
+
+                            <div class="alert alert-info">
+
+                                <strong>Idea clave:</strong>
+                                una ecuación diferencial no solo permite
+                                calcular una función; también permite
+                                estudiar cómo evoluciona un fenómeno.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GRÁFICA -->
+
+        <section id="graficas"
+                 class="section-dark">
+
+            <div class="container">
+
+                <div class="text-center section-title">
+
+                    <span class="section-number">
+                        05
+                    </span>
+
+                    <h2>
+                        Gráfica interactiva
+                    </h2>
+
+                    <p>
+                        Modifica los parámetros y observa cómo cambia
+                        la solución de la ecuación diferencial.
+                    </p>
+
+                </div>
+
+
+                <div class="row g-4 align-items-center">
+
+
+                    <!-- CONTROLES -->
+
+                    <div class="col-lg-4">
+
+                        <div class="control-panel">
+
+                            <h3>
+                                Parámetros
+                            </h3>
+
+                            <label for="valorC">
+                                C — condición inicial
+                            </label>
+
+                            <input
+                                type="range"
+                                class="form-range"
+                                id="valorC"
+                                min="0.5"
+                                max="5"
+                                step="0.1"
+                                value="2">
+
+                            <div class="parameter-value">
+                                C = <span id="mostrarC">2.0</span>
+                            </div>
+
+
+                            <label for="valorK">
+                                k — tasa de crecimiento
+                            </label>
+
+                            <input
+                                type="range"
+                                class="form-range"
+                                id="valorK"
+                                min="-1"
+                                max="1"
+                                step="0.05"
+                                value="0.3">
+
+                            <div class="parameter-value">
+                                k = <span id="mostrarK">0.30</span>
+                            </div>
+
+
+                            <div class="equation-display">
+
+                                \[
+                                y(t)=Ce^{kt}
+                                \]
+
+                            </div>
+
+                            <p>
+                                La gráfica muestra cómo cambia la
+                                solución al modificar $C$ y $k$.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CANVAS -->
+
+                    <div class="col-lg-8">
+
+                        <div id="canvas-container"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CAMPO DIRECCIONES -->
+
+        <section class="section-light">
+
+            <div class="container">
+
+                <div class="row align-items-center">
+
+                    <div class="col-lg-6">
+
+                        <h2>
+                            Campos de direcciones
+                        </h2>
+
+                        <p>
+                            Un campo de direcciones permite visualizar
+                            el comportamiento de las soluciones de una
+                            ecuación diferencial sin resolverla
+                            explícitamente.
+                        </p>
+
+                        <p>
+                            Para una ecuación como:
+                        </p>
+
+                        <div class="formula-box">
+
+                            \[
+                            \frac{dy}{dx}=x-y
+                            \]
+
+                        </div>
+
+                        <p>
+                            cada punto del plano tiene asociada una
+                            pendiente. Al dibujar pequeñas líneas con
+                            esas pendientes podemos observar el
+                            comportamiento general de las soluciones.
+                        </p>
+
+                    </div>
+
+
+                    <div class="col-lg-6">
+
+                        <img
+                            src="img/campo-direcciones.svg"
+                            class="img-fluid educational-image"
+                            alt="Campo de direcciones">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESUMEN -->
+
+        <section class="summary-section">
+
+            <div class="container text-center">
+
+                <h2>
+                    Resumen
+                </h2>
+
+                <p>
+                    Para resolver una ecuación diferencial es importante
+                    identificar su tipo, seleccionar un método apropiado,
+                    realizar las operaciones algebraicas necesarias y,
+                    cuando corresponda, utilizar condiciones iniciales.
+                </p>
+
+                <div class="row g-4 mt-4">
+
+                    <div class="col-md-3">
+
+                        <div class="summary-item">
+                            <strong>1</strong>
+                            Identificar
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="summary-item">
+                            <strong>2</strong>
+                            Elegir método
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="summary-item">
+                            <strong>3</strong>
+                            Resolver
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="summary-item">
+                            <strong>4</strong>
+                            Graficar
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="main-footer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <h4>
+                        Ecuaciones Diferenciales
+                    </h4>
+
+                    <p>
+                        Material educativo interactivo para el estudio
+                        de ecuaciones diferenciales.
+                    </p>
+
+                </div>
+
+                <div class="col-md-6 text-md-end">
+
+                    <p>
+                        Desarrollado con:
+                    </p>
+
+                    <span class="badge bg-primary">
+                        HTML5
+                    </span>
+
+                    <span class="badge bg-secondary">
+                        CSS3
+                    </span>
+
+                    <span class="badge bg-success">
+                        Bootstrap
+                    </span>
+
+                    <span class="badge bg-warning text-dark">
+                        MathJax
+                    </span>
+
+                    <span class="badge bg-danger">
+                        p5.js
+                    </span>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <p class="text-center mb-0">
+                &copy; 2026 - Ecuaciones Diferenciales Interactivas
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <!-- JavaScript propio -->
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

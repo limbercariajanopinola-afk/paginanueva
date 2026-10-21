@@ -1,0 +1,710 @@
+/* ==========================================
+   VARIABLES
+========================================== */
+
+:root {
+
+    --azul: #2563eb;
+    --azul-oscuro: #172554;
+    --azul-profundo: #0f172a;
+
+    --morado: #7c3aed;
+
+    --celeste: #38bdf8;
+
+    --blanco: #ffffff;
+
+    --gris: #64748b;
+
+    --fondo: #f8fafc;
+
+    --borde: #e2e8f0;
+
+}
+
+
+/* ==========================================
+   GENERAL
+========================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #1e293b;
+
+    background: var(--fondo);
+
+    line-height: 1.7;
+
+}
+
+h1,
+h2,
+h3,
+h4 {
+
+    font-weight: 700;
+
+}
+
+h2 {
+
+    font-size: 2.3rem;
+
+    margin-bottom: 20px;
+
+}
+
+p {
+
+    color: #475569;
+
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.main-header {
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(56, 189, 248, .25),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #172554,
+            #312e81
+        );
+
+    color: white;
+
+    padding: 90px 0;
+
+}
+
+.main-header h1 {
+
+    font-size: clamp(2.5rem, 6vw, 5rem);
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+
+}
+
+.main-header .lead {
+
+    color: #dbeafe;
+
+    max-width: 750px;
+
+}
+
+.header-formula {
+
+    font-size: 1.7rem;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    border-radius: 20px;
+
+    padding: 40px 20px;
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar {
+
+    background: #020617;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.15);
+
+}
+
+.navbar-brand {
+
+    font-weight: bold;
+
+}
+
+.nav-link {
+
+    color: #cbd5e1 !important;
+
+    margin-left: 10px;
+
+}
+
+.nav-link:hover {
+
+    color: white !important;
+
+}
+
+
+/* ==========================================
+   SECCIONES
+========================================== */
+
+.section-light {
+
+    padding: 90px 0;
+
+    background: #f8fafc;
+
+}
+
+.section-dark {
+
+    padding: 90px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #172554
+        );
+
+    color: white;
+
+}
+
+.section-dark p {
+
+    color: #cbd5e1;
+
+}
+
+.section-title {
+
+    margin-bottom: 50px;
+
+}
+
+.section-number {
+
+    display: inline-block;
+
+    color: var(--azul);
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* ==========================================
+   IMÁGENES
+========================================== */
+
+.educational-image {
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 40px rgba(15,23,42,.15);
+
+    background: white;
+
+}
+
+
+/* ==========================================
+   FÓRMULAS
+========================================== */
+
+.formula-box {
+
+    background: white;
+
+    border-left:
+        5px solid var(--azul);
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    margin: 20px 0;
+
+    box-shadow:
+        0 5px 15px rgba(15,23,42,.07);
+
+    text-align: center;
+
+    overflow-x: auto;
+
+}
+
+.formula-box.white {
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: white;
+
+    border-left-color:
+        var(--celeste);
+
+}
+
+.formula-box.white mjx-container {
+
+    color: white !important;
+
+}
+
+
+/* ==========================================
+   CONCEPT CARDS
+========================================== */
+
+.concept-card {
+
+    height: 100%;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    transition:
+        transform .3s,
+        background .3s;
+
+}
+
+.concept-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    background:
+        rgba(255,255,255,.12);
+
+}
+
+.concept-card i {
+
+    font-size: 2.5rem;
+
+    color: var(--celeste);
+
+    margin-bottom: 20px;
+
+}
+
+.concept-card h3 {
+
+    color: white;
+
+}
+
+.concept-card p {
+
+    color: #cbd5e1;
+
+}
+
+.mini-formula {
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background:
+        rgba(0,0,0,.2);
+
+    border-radius: 10px;
+
+}
+
+.mini-formula small {
+
+    display: block;
+
+    color: #94a3b8;
+
+    margin-top: 10px;
+
+}
+
+
+/* ==========================================
+   PASOS DE RESOLUCIÓN
+========================================== */
+
+.solution-step {
+
+    display: flex;
+
+    gap: 25px;
+
+    margin-bottom: 35px;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    border:
+        1px solid var(--borde);
+
+    box-shadow:
+        0 5px 20px rgba(15,23,42,.05);
+
+}
+
+.step-number {
+
+    min-width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul),
+            var(--morado)
+        );
+
+    color: white;
+
+    font-size: 1.3rem;
+
+    font-weight: bold;
+
+}
+
+.solution-step h3 {
+
+    color: var(--azul-oscuro);
+
+}
+
+
+/* ==========================================
+   RESPUESTA FINAL
+========================================== */
+
+.final-answer {
+
+    background:
+        #ecfdf5;
+
+    border:
+        1px solid #86efac;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    text-align: center;
+
+}
+
+
+/* ==========================================
+   EJEMPLO
+========================================== */
+
+.section-example {
+
+    padding: 90px 0;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+}
+
+.section-example p {
+
+    color: #e0e7ff;
+
+}
+
+.example-panel {
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    backdrop-filter:
+        blur(10px);
+
+}
+
+.example-panel h3 {
+
+    margin-bottom: 20px;
+
+}
+
+.example-panel li {
+
+    margin-bottom: 10px;
+
+}
+
+
+/* ==========================================
+   CONTROLES DE GRÁFICA
+========================================== */
+
+.control-panel {
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+}
+
+.control-panel h3 {
+
+    margin-bottom: 30px;
+
+}
+
+.control-panel label {
+
+    color: #cbd5e1;
+
+    font-weight: bold;
+
+    display: block;
+
+    margin-top: 20px;
+
+}
+
+.parameter-value {
+
+    color:
+        var(--celeste);
+
+    font-size: 1.1rem;
+
+    font-weight: bold;
+
+}
+
+.equation-display {
+
+    background:
+        rgba(0,0,0,.25);
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    margin: 25px 0;
+
+    text-align: center;
+
+}
+
+
+/* ==========================================
+   CANVAS
+========================================== */
+
+#canvas-container {
+
+    width: 100%;
+
+    min-height: 400px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        #020617;
+
+    border-radius: 20px;
+
+    padding: 15px;
+
+    overflow: hidden;
+
+}
+
+#canvas-container canvas {
+
+    max-width: 100%;
+
+    height: auto !important;
+
+    border-radius: 10px;
+
+}
+
+
+/* ==========================================
+   RESUMEN
+========================================== */
+
+.summary-section {
+
+    padding: 80px 0;
+
+    background: white;
+
+}
+
+.summary-item {
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background:
+        #eff6ff;
+
+    color:
+        #1e3a8a;
+
+    font-weight: bold;
+
+}
+
+.summary-item strong {
+
+    display: block;
+
+    font-size: 2rem;
+
+    color: var(--azul);
+
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.main-footer {
+
+    background:
+        #020617;
+
+    color: white;
+
+    padding: 50px 0 25px;
+
+}
+
+.main-footer p {
+
+    color: #94a3b8;
+
+}
+
+.main-footer h4 {
+
+    color: white;
+
+}
+
+.main-footer hr {
+
+    border-color: #1e293b;
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .main-header {
+
+        padding: 60px 0;
+
+    }
+
+    .section-light,
+    .section-dark,
+    .section-example {
+
+        padding: 60px 0;
+
+    }
+
+    .solution-step {
+
+        flex-direction: column;
+
+    }
+
+    .header-formula {
+
+        margin-top: 40px;
+
+    }
+
+}

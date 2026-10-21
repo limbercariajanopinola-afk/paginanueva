@@ -1,0 +1,111 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 700 450">
+
+    <defs>
+
+        <linearGradient
+            id="fondo"
+            x1="0"
+            y1="0"
+            x2="1"
+            y2="1">
+
+            <stop
+                offset="0%"
+                stop-color="#172554"/>
+
+            <stop
+                offset="100%"
+                stop-color="#312e81"/>
+
+        </linearGradient>
+
+    </defs>
+
+    <rect
+        width="700"
+        height="450"
+        rx="30"
+        fill="url(#fondo)"/>
+
+
+    <!-- Ejes -->
+
+    <line
+        x1="100"
+        y1="350"
+        x2="600"
+        y2="350"
+        stroke="#64748b"
+        stroke-width="3"/>
+
+    <line
+        x1="100"
+        y1="350"
+        x2="100"
+        y2="80"
+        stroke="#64748b"
+        stroke-width="3"/>
+
+
+    <!-- Curva -->
+
+    <path
+        d="
+        M100 330
+        C160 320
+        180 280
+        230 290
+        C280 300
+        300 220
+        350 230
+        C410 240
+        430 150
+        490 170
+        C540 185
+        560 100
+        600 90
+        "
+        fill="none"
+        stroke="#38bdf8"
+        stroke-width="7"/>
+
+
+    <!-- Punto -->
+
+    <circle
+        cx="350"
+        cy="230"
+        r="10"
+        fill="#fbbf24"/>
+
+
+    <!-- Fórmula -->
+
+    <text
+        x="350"
+        y="120"
+        text-anchor="middle"
+        fill="white"
+        font-size="42"
+        font-family="Arial">
+
+        dy/dx = f(x,y)
+
+    </text>
+
+
+    <text
+        x="350"
+        y="405"
+        text-anchor="middle"
+        fill="#cbd5e1"
+        font-size="20"
+        font-family="Arial">
+
+        Función + derivada + comportamiento
+
+    </text>
+
+</svg>
